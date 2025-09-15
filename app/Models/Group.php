@@ -13,4 +13,9 @@ class Group extends Model
     protected $table = 'groups';
     protected $fillable = ['id_parent', 'name'];
 
+    public function products(): HasMany
+    {
+        return $this->hasMany(Product::class, 'id_group');
+    }
+
 }
