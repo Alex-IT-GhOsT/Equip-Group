@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Contracts\GroupRepositoryInterface;
+use App\Contracts\ServicesInterface\GroupServiceInterface;
+use App\Repositories\GroupRepository;
+use App\Services\GroupService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,7 +15,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(GroupRepositoryInterface::class, GroupRepository::class);
+        $this->app->bind(GroupServiceInterface::class, GroupService::class);
     }
 
     /**
