@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Contracts\ServicesInterface\GroupServiceInterface;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct(
+        private readonly GroupServiceInterface $service
+    ){}
     public function index()
     {
-        //
+        return response()->json($this->service->allGroups());
     }
 
     /**
