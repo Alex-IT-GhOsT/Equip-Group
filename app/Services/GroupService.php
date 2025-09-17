@@ -15,4 +15,9 @@ class GroupService implements GroupServiceInterface
     {
         return $this->groupRepository->all();
     }
+
+    public function getRootGroup(): Collection
+    {
+        return $this->groupRepository->getRootGroup();
+    }
 }

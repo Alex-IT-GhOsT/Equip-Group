@@ -11,4 +11,5 @@ interface GroupRepositoryInterface
     public function all(): Collection;
     public function find(int $id): ?Group;
     public function paginate(int $perPage = 6): LengthAwarePaginator;
+    public function getRootGroup(): Collection;
 }

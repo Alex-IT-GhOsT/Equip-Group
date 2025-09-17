@@ -12,7 +12,8 @@ class GroupController extends Controller
     ){}
     public function index()
     {
-        return response()->json($this->service->allGroups());
+        $groups = $this->service->getRootGroup();
+        return view('groups.index', ['groups' => $groups]);
     }
 
     /**

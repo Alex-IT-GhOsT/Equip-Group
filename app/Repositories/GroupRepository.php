@@ -24,4 +24,11 @@ class GroupRepository implements GroupRepositoryInterface
     {
         return Group::paginate($perPage);
     }
+
+    public function getRootGroup(): Collection
+    {
+        return Group::where('id_parent',0)
+            ->withCount('children')
+            ->get();
+    }
 }
