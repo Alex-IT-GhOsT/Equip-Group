@@ -34,7 +34,7 @@ class Group extends Model
     {
         $all = collect();
 
-        foreach ($this->children() as $child) {
+        foreach ($this->children as $child) {
             $all->push($child);
             $all = $all->merge($child->allChildren());
         }
