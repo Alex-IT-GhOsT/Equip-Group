@@ -8,4 +8,5 @@ interface GroupServiceInterface
 {
     public function allGroups(): Collection;
     public function getRootGroup(): Collection;
+    public function getGroupWithChildrenCount(): Collection;
 }

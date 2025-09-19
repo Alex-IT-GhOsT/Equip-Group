@@ -42,4 +42,9 @@ class Group extends Model
         return $all;
     }
 
+    public function totalChildrenCount(): int
+    {
+        return $this->allChildren()->count();
+    }
+
 }

@@ -20,4 +20,14 @@ class GroupService implements GroupServiceInterface
     {
         return $this->groupRepository->getRootGroup();
     }
+
+    public function getGroupWithChildrenCount(): Collection
+    {
+        $groups = $this->getRootGroup();
+
+        foreach ($groups as $group) {
+            $group->total_children_count = $group->totalChildrenCount();
+        }
+        return $groups;
+    }
 }

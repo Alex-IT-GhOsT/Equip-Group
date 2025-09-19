@@ -9,7 +9,11 @@
 
 <ul>
     @foreach($groups as $group)
-        <li>{{ $group->name }} {{ $group->children_count }} </li>
+        <li>
+            <a href="/">
+                {{ $group->name }} ({{ $group->total_children_count }})
+            </a>
+        </li>
     @endforeach
 </ul>
 </body>

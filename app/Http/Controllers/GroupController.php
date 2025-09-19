@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Contracts\ServicesInterface\GroupServiceInterface;
+use App\Models\Group;
 use Illuminate\Http\Request;
+
 
 class GroupController extends Controller
 {
@@ -12,7 +14,9 @@ class GroupController extends Controller
     ){}
     public function index()
     {
-        $groups = $this->service->getRootGroup();
+        $groups = $this->service->getGroupWithChildrenCount();
+
+
         return view('groups.index', ['groups' => $groups]);
     }
 
